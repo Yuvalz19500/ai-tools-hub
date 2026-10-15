@@ -1,24 +1,104 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI Tools Hub · Yuval & Ron</title><style>
-:root{--bg:#0d0f14;--card:#161a22;--fg:#e8ebf1;--mut:#8b93a7;--acc:#7c9cff}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg)}
-header{padding:28px 20px 8px;max-width:1100px;margin:auto}h1{margin:0;font-size:1.8rem}.sub{color:var(--mut);margin-top:6px}
-.bar{position:sticky;top:0;background:var(--bg);padding:12px 20px;max-width:1100px;margin:auto;z-index:2}
-input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #2a3040;background:var(--card);color:var(--fg);font-size:1rem}
-.tabs{display:flex;gap:8px;overflow-x:auto;padding-top:10px}.tab{flex:none;border:1px solid #2a3040;background:var(--card);color:var(--fg);padding:7px 12px;border-radius:999px;cursor:pointer}
-.tab.on{background:var(--acc);color:#0d0f14;border-color:var(--acc)}
-main{max-width:1100px;margin:auto;padding:10px 20px 40px;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
-.card{background:var(--card);border:1px solid #232938;border-radius:14px;padding:16px}.card h3{margin:10px 0 6px;font-size:1.05rem}
-.card a{color:var(--fg);text-decoration:none}.card a:hover{color:var(--acc)}.card p{margin:0 0 10px;color:#c4cad6;line-height:1.45}
-.top{display:flex;justify-content:space-between;font-size:.75rem}.cat{color:var(--acc)}.price{padding:2px 8px;border-radius:999px;background:#2a3040}
-.price.free{background:#173d2a;color:#7ee2a8}.price.paid{background:#3d2f17;color:#f1c27d}.meta{font-size:.78rem;color:var(--mut)}
-.au{display:flex;gap:10px;align-items:center;margin:10px 0}.av{width:36px;height:36px;border-radius:50%}.h{color:var(--mut);font-size:.85rem}
-.txt{white-space:pre-wrap;word-wrap:break-word;line-height:1.45;color:#d6dbe5}.txt a{color:var(--acc)!important}
-.media{display:grid;gap:4px;margin-top:10px}.media.n2,.media.n3,.media.n4{grid-template-columns:1fr 1fr}.media img,.media video{width:100%;border-radius:10px;display:block;max-height:420px;object-fit:cover;background:#000}
-.foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px}.btn{background:var(--acc);color:#0d0f14!important;padding:6px 14px;border-radius:999px;font-weight:600;font-size:.85rem}
-</style></head><body><header><h1>AI Tools Hub</h1><div class="sub">Usable AI tools, features & workflows shared between Yuval and Ron · Last updated 2026-10-15 16:50</div></header>
-<div class="bar"><input id="q" placeholder="Search tools..."><div class="tabs"><button class="tab on" data-c="all">All (28)</button><button class="tab" data-c="3D">3D (5)</button><button class="tab" data-c="Motion/Animation">Motion/Animation (3)</button><button class="tab" data-c="Sound/Music">Sound/Music (3)</button><button class="tab" data-c="Video">Video (5)</button><button class="tab" data-c="Game Dev">Game Dev (3)</button><button class="tab" data-c="New Features/Models">New Features/Models (3)</button><button class="tab" data-c="Workflows">Workflows (3)</button><button class="tab" data-c="Agents &amp; Apps">Agents &amp; Apps (3)</button></div></div>
-<main><article class="card" data-cat="3D" data-q="meet keenface: like meshy, but for production-ready 3d heads.
+<meta name="robots" content="noindex,nofollow"><title>AI Tools Hub · Yuval & Ron</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@300&family=Stack+Sans+Text:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0a08;--surface:#181512;--surface2:#211d19;--ink:#fff;--muted:#a39d96;--accent:#c9a45a;--accent-ink:#0c0a08;
+--small:clamp(.8125rem,.79rem + .1vw,.875rem);--body:clamp(1rem,.97rem + .15vw,1.0625rem);--lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);--head:clamp(2.25rem,1.3rem + 3.6vw,4.5rem);
+--m:12px;--g:8px;--ease:cubic-bezier(.2,.7,.1,1)}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--body)/1.5 "Stack Sans Text",system-ui,sans-serif}
+a{color:inherit}img,video{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;padding:0 var(--m)}
+.sheet{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;height:100%}
+.col{display:flex;flex-direction:column;gap:12px;transform:translateY(var(--off))}
+.fr{display:block;background:var(--surface);text-decoration:none}.fr img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s var(--ease)}
+.fr:nth-child(3n+2) img{aspect-ratio:1}.fr:nth-child(4n+3) img{aspect-ratio:16/10}
+.fr:hover img{transform:scale(1.04)}.fr{overflow:hidden}
+.fr span{display:block;height:28px;padding:0 10px;font-size:var(--small);line-height:28px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:relative}
+.panel{position:absolute;top:24svh;left:calc(var(--m) + (100% - 2*var(--m) - 60px)/6*2 + 24px);width:calc((100% - 2*var(--m) - 60px)/6*2 + 12px);min-height:410px;
+background:var(--ink);color:var(--accent-ink);padding:28px;display:flex;flex-direction:column;gap:20px;z-index:2}
+.panel h1{margin:0;font:300 var(--head)/1.02 "Stack Sans Headline",sans-serif;letter-spacing:-.022em}
+.panel p{margin:0;font-size:var(--lead);line-height:1.35;max-width:24ch}
+.panel .row{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;font-size:var(--small)}
+.btn{white-space:nowrap;flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:var(--accent);color:var(--accent-ink);font-weight:500;text-decoration:none;transition:transform .2s var(--ease),background .2s}
+.btn:hover{background:#dcb76a}.btn:active{transform:scale(.97)}
+.panel .btn{background:var(--accent-ink);color:var(--ink)}.panel .btn:hover{background:#2b2520}
+.lib{padding:160px var(--m) 0}
+.libhead{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin:0 0 48px}
+.libhead h2{margin:0;font:300 var(--head)/1.02 "Stack Sans Headline",sans-serif;letter-spacing:-.022em}.libhead h2 span{color:var(--muted)}
+.search{flex:0 1 420px;min-height:52px;padding:0 18px;border:0;border-radius:0;background:var(--surface2);color:var(--ink);font:inherit}
+.search::placeholder{color:var(--muted)}
+.board{display:grid;grid-template-columns:200px 1fr;gap:var(--g);align-items:start}
+.tabs{position:sticky;top:12px;display:flex;flex-direction:column;gap:6px}
+.tab{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:56px;padding:0 16px;border:0;background:var(--surface);color:var(--ink);font:inherit;text-align:left;cursor:pointer;transition:background .2s,transform .2s var(--ease)}
+.tab b{font-weight:500}.tab span{font-size:var(--small);color:var(--muted);font-variant-numeric:tabular-nums}
+.tab:hover{background:var(--surface2)}.tab:active{transform:scale(.98)}.tab.on{background:var(--ink);color:var(--accent-ink)}.tab.on span{color:#5a544d}
+.grid{columns:3 340px;column-gap:var(--g)}
+.tile{break-inside:avoid;margin:0 0 var(--g);background:var(--surface);padding:22px;transition:background .25s}
+.tile:hover{background:var(--surface2)}
+.au{display:flex;gap:12px;align-items:center;margin-bottom:14px}.av{width:40px;height:40px;border-radius:50%;background:var(--surface2)}
+.au b{display:block;font-weight:500;line-height:1.25}.au span{font-size:var(--small);color:var(--muted)}
+.txt{white-space:pre-wrap;overflow-wrap:anywhere}.txt a{color:var(--accent);text-decoration:none}.txt a:hover{text-decoration:underline}
+.media{display:grid;gap:4px;margin:16px -22px 0}.media.n2,.media.n3,.media.n4{grid-template-columns:1fr 1fr}
+.media img,.media video{width:100%;max-height:520px;object-fit:cover;background:#000}
+.foot span{text-align:right}.foot span{text-align:right}.tr{margin:0 0 10px;font-size:var(--small);color:var(--muted)}.tr button{border:0;background:none;color:var(--accent);font:inherit;padding:0 0 0 6px;cursor:pointer;text-decoration:underline}.orig{display:none}.post.show-orig .orig{display:block}.post.show-orig .en{display:none}.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;font-size:var(--small);color:var(--muted)}
+.price{color:var(--accent)}
+.empty{display:none;padding:40px 22px;background:var(--surface);font-size:var(--lead)}
+.close{margin-top:200px;padding:0 var(--m) var(--m)}
+.mark{display:flex;gap:4px;align-items:flex-end;height:34svh;min-height:200px}
+.mark i{flex:1;display:flex;align-items:flex-end;padding:0 0 4px 12px;font:300 clamp(3rem,10vw,10rem)/.85 "Stack Sans Headline",sans-serif;font-style:normal;letter-spacing:-.03em}
+.closerow{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:56px;font-size:var(--small);color:var(--muted)}
+.js .rise{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}.js .rise.in{opacity:1;transform:none}
+.js .shutter{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)}.js .shutter.in{clip-path:inset(0)}
+.js .shutter img{transform:scale(1.12);transition:transform 1.4s var(--ease)}.js .shutter.in img{transform:none}
+.drift{animation:drift 30s ease-in-out infinite alternate}@keyframes drift{to{transform:translateY(calc(var(--off) - 60px))}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rise,.js .shutter{opacity:1;transform:none;clip-path:none}}
+@media (max-width:900px){
+ .hero{height:auto;min-height:0;padding:var(--m);display:flex;flex-direction:column}.panel{order:-1}
+ .panel{position:relative;top:0;left:0;width:100%;min-height:40svh;padding:24px}
+ .panel h1{font-size:clamp(2.25rem,9vw,3rem)}.panel p{font-size:1.0625rem}.panel .btn{width:100%;justify-content:center}
+ .sheet{grid-template-columns:1fr 1fr;gap:8px;height:auto;max-height:110svh;overflow:hidden;margin-top:8px}
+ .col{gap:8px;transform:none}.col:nth-child(2n){margin-top:-60px}.col:nth-child(n+3){display:none}.drift{animation:none}
+ .lib{padding-top:96px}.board{display:block}
+ .tabs{flex-direction:row;flex-wrap:wrap;position:static;top:0;z-index:3;background:var(--bg);padding:8px 0;margin:0 calc(-1*var(--m)) 8px;padding-inline:var(--m);scrollbar-width:none}
+ .tab{flex:1 1 auto;min-height:44px}.search{flex-basis:100%}
+ .grid{columns:1}.close{margin-top:120px}.mark{height:22svh}
+}
+</style></head><body>
+<section class="hero">
+<div class="sheet" aria-hidden="false"><div class="col" style="--off:0px"><a class="fr" href="https://x.com/BytePlusGlobal/status/2110643232363422074" target="_blank" rel="noopener"><img src="media/13_2110642803445530624_poster.jpg" alt="Still from a post by @BytePlusGlobal" loading="eager"><span style="background:#c9a45a;color:#0c0a08">@BytePlusGlobal</span></a><a class="fr" href="https://x.com/tetumemo/status/2110142146737303597" target="_blank" rel="noopener"><img src="media/13_2109660971442556929_poster.jpg" alt="Still from a post by @tetumemo" loading="eager"><span style="background:#e9e2d6;color:#0c0a08">@tetumemo</span></a><a class="fr" href="https://x.com/GoogleLabs/status/2107800195748737042" target="_blank" rel="noopener"><img src="media/13_2107799852545724416_poster.jpg" alt="Still from a post by @GoogleLabs" loading="lazy"><span style="background:#c9a45a;color:#0c0a08">@GoogleLabs</span></a><a class="fr" href="https://x.com/ataiiam/status/2105710796198322659" target="_blank" rel="noopener"><img src="media/13_2105710720109473792_poster.jpg" alt="Still from a post by @ataiiam" loading="lazy"><span style="background:#e9e2d6;color:#0c0a08">@ataiiam</span></a></div><div class="col" style="--off:-90px"><a class="fr" href="https://x.com/keen_tools/status/2110527165217349966" target="_blank" rel="noopener"><img src="media/13_2110526904423813121_poster.jpg" alt="Still from a post by @keen_tools" loading="eager"><span style="background:#2b2520;color:#ffffff">@keen_tools</span></a><a class="fr" href="https://x.com/albacnt/status/2109286762438603208" target="_blank" rel="noopener"><img src="media/3_2109286395470561280.png" alt="Still from a post by @albacnt" loading="eager"><span style="background:#5a4a36;color:#ffffff">@albacnt</span></a><a class="fr" href="https://x.com/genex_games/status/2107148754633507237" target="_blank" rel="noopener"><img src="media/13_2107142018635841536_poster.jpg" alt="Still from a post by @genex_games" loading="lazy"><span style="background:#2b2520;color:#ffffff">@genex_games</span></a><a class="fr" href="https://x.com/tavus/status/2105704169009246248" target="_blank" rel="noopener"><img src="media/13_2105703934073683968_poster.jpg" alt="Still from a post by @tavus" loading="lazy"><span style="background:#5a4a36;color:#ffffff">@tavus</span></a></div><div class="col" style="--off:-40px"><a class="fr" href="https://x.com/embw_l0x/status/2110480484761301315" target="_blank" rel="noopener"><img src="media/3_2110480186432991232.png" alt="Still from a post by @embw_l0x" loading="eager"><span style="background:#e9e2d6;color:#0c0a08">@embw_l0x</span></a><a class="fr" href="https://x.com/sinaatalay/status/2109045945149395421" target="_blank" rel="noopener"><img src="media/13_2109040311934889984_poster.jpg" alt="Still from a post by @sinaatalay" loading="lazy"><span style="background:#c9a45a;color:#0c0a08">@sinaatalay</span></a><a class="fr" href="https://x.com/Stefan_3D_AI/status/2106291980619890818" target="_blank" rel="noopener"><img src="media/13_2106291781981872128_poster.jpg" alt="Still from a post by @Stefan_3D_AI" loading="lazy"><span style="background:#e9e2d6;color:#0c0a08">@Stefan_3D_AI</span></a><a class="fr" href="https://x.com/gota_bara/status/2105663388764508343" target="_blank" rel="noopener"><img src="media/3_2105660714690203648.jpg" alt="Still from a post by @gota_bara" loading="lazy"><span style="background:#c9a45a;color:#0c0a08">@gota_bara</span></a></div><div class="col" style="--off:-130px"><a class="fr" href="https://x.com/Mho_23/status/2110412552794468547" target="_blank" rel="noopener"><img src="media/13_2110412166180315139_poster.jpg" alt="Still from a post by @Mho_23" loading="eager"><span style="background:#5a4a36;color:#ffffff">@Mho_23</span></a><a class="fr" href="https://x.com/Fnao32978420/status/2108902279508312247" target="_blank" rel="noopener"><img src="media/13_2108902171110723584_poster.jpg" alt="Still from a post by @Fnao32978420" loading="lazy"><span style="background:#2b2520;color:#ffffff">@Fnao32978420</span></a><a class="fr" href="https://x.com/BlendiByl/status/2106226258984264042" target="_blank" rel="noopener"><img src="media/13_2106224118391828480_poster.jpg" alt="Still from a post by @BlendiByl" loading="lazy"><span style="background:#5a4a36;color:#ffffff">@BlendiByl</span></a><a class="fr" href="https://x.com/Bingeljell/status/2105364806379151765" target="_blank" rel="noopener"><img src="media/13_2105354132051947520_poster.jpg" alt="Still from a post by @Bingeljell" loading="lazy"><span style="background:#2b2520;color:#ffffff">@Bingeljell</span></a></div><div class="col" style="--off:-20px"><a class="fr" href="https://x.com/MireloAI/status/2110360787780800611" target="_blank" rel="noopener"><img src="media/13_2110360533803130880_poster.jpg" alt="Still from a post by @MireloAI" loading="eager"><span style="background:#c9a45a;color:#0c0a08">@MireloAI</span></a><a class="fr" href="https://x.com/0xCodila/status/2108621038141546616" target="_blank" rel="noopener"><img src="media/3_2108616485635551232.jpg" alt="Still from a post by @0xCodila" loading="lazy"><span style="background:#e9e2d6;color:#0c0a08">@0xCodila</span></a><a class="fr" href="https://x.com/taziku_co/status/2106178218864832708" target="_blank" rel="noopener"><img src="media/13_2105657229198462977_poster.jpg" alt="Still from a post by @taziku_co" loading="lazy"><span style="background:#c9a45a;color:#0c0a08">@taziku_co</span></a><a class="fr" href="https://x.com/HeyGen/status/2105352603542720675" target="_blank" rel="noopener"><img src="media/13_2105352541278195712_poster.jpg" alt="Still from a post by @HeyGen" loading="lazy"><span style="background:#e9e2d6;color:#0c0a08">@HeyGen</span></a></div><div class="col" style="--off:-70px"><a class="fr" href="https://x.com/albacnt/status/2110326141210730563" target="_blank" rel="noopener"><img src="media/13_2110325721277042688_poster.jpg" alt="Still from a post by @albacnt" loading="eager"><span style="background:#2b2520;color:#ffffff">@albacnt</span></a><a class="fr" href="https://x.com/higgsfield_ai/status/2108378429737628038" target="_blank" rel="noopener"><img src="media/13_2108377557741760512_poster.jpg" alt="Still from a post by @higgsfield_ai" loading="lazy"><span style="background:#5a4a36;color:#ffffff">@higgsfield_ai</span></a><a class="fr" href="https://x.com/buraktuyan/status/2106018840383717513" target="_blank" rel="noopener"><img src="media/13_2106018106569015296_poster.jpg" alt="Still from a post by @buraktuyan" loading="lazy"><span style="background:#2b2520;color:#ffffff">@buraktuyan</span></a><a class="fr" href="https://x.com/KaranVaidya6/status/2105334408932954604" target="_blank" rel="noopener"><img src="media/13_2105334362699169795_poster.jpg" alt="Still from a post by @KaranVaidya6" loading="lazy"><span style="background:#5a4a36;color:#ffffff">@KaranVaidya6</span></a></div></div>
+<div class="panel rise"><h1>AI Tools Hub</h1>
+<p>Every usable AI tool, feature and workflow Yuval and Ron have sent each other, shown as the original posts.</p>
+<div class="row"><a class="btn" href="#library">Browse 28 finds</a><span>20 videos · updated 15 Oct 2026, 16:57</span></div></div>
+</section>
+<section class="lib" id="library">
+<div class="libhead rise"><h2><span>The shared shelf,</span><br>newest first</h2><input id="q" class="search" type="search" placeholder="Search the exact post text" aria-label="Search posts"></div>
+<div class="board"><nav class="tabs" aria-label="Categories"><button class="tab on" data-c="all"><b>Everything</b><span>28</span></button><button class="tab" data-c="3D"><b>3D</b><span>5</span></button><button class="tab" data-c="Motion/Animation"><b>Motion/Animation</b><span>3</span></button><button class="tab" data-c="Sound/Music"><b>Sound/Music</b><span>3</span></button><button class="tab" data-c="Video"><b>Video</b><span>5</span></button><button class="tab" data-c="Game Dev"><b>Game Dev</b><span>3</span></button><button class="tab" data-c="New Features/Models"><b>New Features/Models</b><span>3</span></button><button class="tab" data-c="Workflows"><b>Workflows</b><span>3</span></button><button class="tab" data-c="Agents &amp; Apps"><b>Agents &amp; Apps</b><span>3</span></button></nav>
+<div><div class="grid"><article class="tile post wide" data-cat="Video" data-q="omnihuman 2.0 is live.
+
+it doesn&#x27;t just sync lips — it understands your audio. feed it any track, speech, music or dialogue, and it reads the tone, emotion, and every word, then performs it. every syllable lands.
+
+now generate up to 5 minutes of video in a single continuous shot, up from 60 seconds, with no stitching required.
+
+and 𝟰𝟬%+ 𝗰𝗵𝗲𝗮𝗽𝗲𝗿 — $0.12 → $0.07/sec. better quality, lower cost.
+
+deeper understanding. longer takes. lower price.
+
+https://www.byteplus.com/en/product/omnihuman  omnihuman 2.0 (byteplus) byteplusglobal byteplus video">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2076879408246493184/APDqyR2i_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>BytePlus</b><span>@BytePlusGlobal · 15 Oct 2026</span></div></header>
+<div class="txt">OmniHuman 2.0 is live.
+
+It doesn&#x27;t just sync lips — it understands your audio. Feed it any track, speech, music or dialogue, and it reads the tone, emotion, and every word, then performs it. Every syllable lands.
+
+Now generate up to 5 minutes of video in a single continuous shot, up from 60 seconds, with no stitching required.
+
+And 𝟰𝟬%+ 𝗰𝗵𝗲𝗮𝗽𝗲𝗿 — $0.12 → $0.07/sec. Better quality, lower cost.
+
+Deeper understanding. Longer takes. Lower price.
+
+<a href="https://www.byteplus.com/en/product/OmniHuman" target="_blank" rel="noopener">https://www.byteplus.com/en/product/OmniHuman</a></div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2110642803445530624_poster.jpg"><source src="https://video.twimg.com/amplify_video/2110642803445530624/vid/avc1/3840x2160/ghMxA50CivZxJ7dI.mp4" type="video/mp4"><a href="https://x.com/BytePlusGlobal/status/2110643232363422074"><img src="media/13_2110642803445530624_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/BytePlusGlobal/status/2110643232363422074" target="_blank" rel="noopener">Open in X</a><span>Video · <span class="price">Paid</span> · from Yuval</span></footer></article><article class="tile post" data-cat="3D" data-q="meet keenface: like meshy, but for production-ready 3d heads.
 
 yep, it’s that simple: feed ref photos -&gt; get a solid 3d head with precise likeness, pipeline-ready pbr &amp; metahuman topology.
 
@@ -26,9 +106,8 @@ fully automated, done in minutes.
 
 go build: https://keenface.ai
 
-#metahuman #gamedev keenface keen_tools keentools">
-<div class="top"><span class="cat">3D</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1019922948386426880/WrjkKz0p_normal.jpg" alt=""><div><b>KeenTools</b> <span class="h">@keen_tools · 2026-10-15</span></div></div>
+#metahuman #gamedev  keenface keen_tools keentools 3d">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1019922948386426880/WrjkKz0p_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>KeenTools</b><span>@keen_tools · 15 Oct 2026</span></div></header>
 <div class="txt">Meet KeenFace: Like Meshy, but for production-ready 3D heads.
 
 Yep, it’s that simple: feed ref photos -&gt; get a solid 3D head with precise likeness, pipeline-ready PBR &amp; MetaHuman topology.
@@ -37,16 +116,70 @@ Fully automated, done in minutes.
 
 Go build: <a href="https://keenface.ai" target="_blank" rel="noopener">https://keenface.ai</a>
 
-<a href="https://x.com/hashtag/metahuman" target="_blank" rel="noopener">#metahuman</a> <a href="https://x.com/hashtag/gamedev" target="_blank" rel="noopener">#gamedev</a></div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2110526904423813121_poster.jpg"><source src="https://video.twimg.com/amplify_video/2110526904423813121/vid/avc1/1920x1080/vqGFcckOYOtvMXVj.mp4" type="video/mp4"><a href="https://x.com/keen_tools/status/2110527165217349966"><img src="media/13_2110526904423813121_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/keen_tools/status/2110527165217349966" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="3D" data-q="if you’re struggling with getting good looking 3d models with opus , astra, argon, etc. but don’t want to spend money on image to 3d services  - definitely check this out.
+<a href="https://x.com/hashtag/metahuman" target="_blank" rel="noopener">#metahuman</a> <a href="https://x.com/hashtag/gamedev" target="_blank" rel="noopener">#gamedev</a></div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2110526904423813121_poster.jpg"><source src="https://video.twimg.com/amplify_video/2110526904423813121/vid/avc1/1920x1080/vqGFcckOYOtvMXVj.mp4" type="video/mp4"><a href="https://x.com/keen_tools/status/2110527165217349966"><img src="media/13_2110526904423813121_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/keen_tools/status/2110527165217349966" target="_blank" rel="noopener">Open in X</a><span>3D · from Yuval</span></footer></article><article class="tile post" data-cat="3D" data-q="if you’re struggling with getting good looking 3d models with opus , astra, argon, etc. but don’t want to spend money on image to 3d services  - definitely check this out.
 
-generate 3d models locally on your own machine. no api prices, no excuses. https://twitter.com/bingeljell/status/2110432897782141176 local image-to-3d generation chongdashu chong-u">
-<div class="top"><span class="cat">3D</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2109521104167661568/eKr4dw03_normal.jpg" alt=""><div><b>Chong-U</b> <span class="h">@chongdashu · 2026-10-14</span></div></div>
+generate 3d models locally on your own machine. no api prices, no excuses. https://twitter.com/bingeljell/status/2110432897782141176  local image-to-3d generation chongdashu chong-u 3d">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2109521104167661568/eKr4dw03_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Chong-U</b><span>@chongdashu · 14 Oct 2026</span></div></header>
 <div class="txt">If you’re struggling with getting good looking 3d models with opus , astra, argon, etc. but don’t want to spend money on image to 3d services  - definitely check this out.
 
 Generate 3d models locally on your own machine. No api prices, no excuses. <a href="https://twitter.com/bingeljell/status/2110432897782141176" target="_blank" rel="noopener">https://twitter.com/bingeljell/status/2110432897782141176</a></div>
-<div class="foot"><a class="btn" href="https://x.com/chongdashu/status/2110507817446838563" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Video" data-q="🚨 esto es una locura
+<footer class="foot"><a class="btn" href="https://x.com/chongdashu/status/2110507817446838563" target="_blank" rel="noopener">Open in X</a><span>3D · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post" data-cat="New Features/Models" data-q="seperate fable usage is gone in claude desktop....... oh lord please
+
+open ai will never recover 🥺  claude desktop: no separate fable usage embw_l0x embw_l0x new features/models">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2110368516708696064/qhaX7Boi_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>embw_l0x</b><span>@embw_l0x · 14 Oct 2026</span></div></header>
+<div class="txt">Seperate Fable usage is gone in Claude desktop....... Oh lord please
+
+Open AI will never recover 🥺</div><div class="media n1"><img src="media/3_2110480186432991232.png" alt="Image from the post" loading="lazy"></div>
+<footer class="foot"><a class="btn" href="https://x.com/embw_l0x/status/2110480484761301315" target="_blank" rel="noopener">Open in X</a><span>New Features/Models · <span class="price">Paid</span> · from Yuval</span></footer></article><article class="tile post wide" data-cat="Video" data-q="you can generate unlimited ai videos with wan 3.0..
+
+seedance 2.5 has been the go-to for high quality ai video, and you pay for every second of it
+
+wan 3.0 is now unlimited on higgsfield
+
+&gt; ⁠generate as much as you want, no credits
+&gt; high quality results
+&gt; the api is 60% off rn, $0.042 per second
+&gt; up to 9 times cheaper than seedance 2.5 on the api
+
+i&#x27;ve said this once and i&#x27;ll say it again, you don&#x27;t need seedance 2.5 for 99% of use cases  wan 3.0 unlimited on higgsfield mho_23 miko video">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1973504131806498816/h5gkF8zc_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Miko</b><span>@Mho_23 · 14 Oct 2026</span></div></header>
+<div class="txt">you can generate UNLIMITED AI videos with WAN 3.0..
+
+Seedance 2.5 has been the go-to for high quality AI video, and you pay for every second of it
+
+WAN 3.0 is now UNLIMITED on Higgsfield
+
+&gt; ⁠generate as much as you want, no credits
+&gt; high quality results
+&gt; the API is 60% off rn, $0.042 per second
+&gt; up to 9 times cheaper than Seedance 2.5 on the API
+
+i&#x27;ve said this once and i&#x27;ll say it again, you don&#x27;t need Seedance 2.5 for 99% of use cases</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2110412166180315139_poster.jpg"><source src="media/13_2110412166180315139.mp4" type="video/mp4"><a href="https://x.com/Mho_23/status/2110412552794468547"><img src="media/13_2110412166180315139_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/Mho_23/status/2110412552794468547" target="_blank" rel="noopener">Open in X</a><span>Video · <span class="price">Paid</span> · from Yuval</span></footer></article><article class="tile post" data-cat="Sound/Music" data-q="ai videos finally sound real.
+
+introducing mirelo sfx 2.0.
+
+it watches your video, cuts the music you never prompted, keeps the dialogue, and builds a full sound design synced to the action and consistent across any length clips.
+
+you’ve made it look right. we’ll make it sound right.
+
+live today through our api, on @runwayml  and @fal.
+
+other platforms coming soon. (thread)  mirelo sfx 2.0 mireloai mirelo sound/music">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2056684878804987904/SKxWDUAT_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Mirelo</b><span>@MireloAI · 14 Oct 2026</span></div></header>
+<div class="txt">AI Videos finally sound real.
+
+Introducing Mirelo SFX 2.0.
+
+It watches your video, cuts the music you never prompted, keeps the dialogue, and builds a full sound design synced to the action and consistent across any length clips.
+
+You’ve made it look right. We’ll make it sound right.
+
+Live today through our API, on <a href="https://x.com/runwayml" target="_blank" rel="noopener">@runwayml</a>  and <a href="https://x.com/fal" target="_blank" rel="noopener">@fal</a>.
+
+Other platforms coming soon. (Thread)</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2110360533803130880_poster.jpg"><source src="media/13_2110360533803130880.mp4" type="video/mp4"><a href="https://x.com/MireloAI/status/2110360787780800611"><img src="media/13_2110360533803130880_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/MireloAI/status/2110360787780800611" target="_blank" rel="noopener">Open in X</a><span>Sound/Music · <span class="price">Paid</span> · from Yuval</span></footer></article><article class="tile post wide" data-cat="Video" data-q="🚨 esto es una locura
 
 un proyecto de github que convierte vídeos largos en clips cortos listos para publicar en redes.
 
@@ -65,10 +198,47 @@ ideal para reutilizar podcasts, entrevistas o vídeos largos sin tener que edita
 
 y sí, puedes ver el código en github.
 
-enlace abajo 👇 openshorts albacnt alba">
-<div class="top"><span class="cat">Video</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2094133346049662976/-3uR9Zf1_normal.jpg" alt=""><div><b>Alba</b> <span class="h">@albacnt · 2026-10-14</span></div></div>
-<div class="txt">🚨 ESTO ES UNA LOCURA
+enlace abajo 👇 🚨 this is crazy
+
+a github project that turns long videos into short clips ready to post on social media.
+
+it&#x27;s called openshorts and it&#x27;s open source.
+
+the best part? 👇
+
+→ finds the best moments in the video
+→ generates vertical clips
+→ adds subtitles automatically
+→ prepares content for shorts, tiktok and reels
+
+all in one tool.
+
+ideal for repurposing podcasts, interviews or long videos without having to edit each clip from scratch.
+
+and yes, you can see the code on github.
+
+link below 👇 openshorts albacnt alba video">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2094133346049662976/-3uR9Zf1_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Alba</b><span>@albacnt · 14 Oct 2026</span></div></header>
+<p class="tr">Translated from Spanish<button type="button" onclick="this.closest('.post').classList.toggle('show-orig');this.textContent=this.textContent=='Show original'?'Show translation':'Show original'">Show original</button></p><div class="txt en">🚨 THIS IS CRAZY
+
+A GitHub project that turns long videos into short clips ready to post on social media.
+
+It&#x27;s called OpenShorts and it&#x27;s open source.
+
+The best part? 👇
+
+→ Finds the best moments in the video
+→ Generates vertical clips
+→ Adds subtitles automatically
+→ Prepares content for Shorts, TikTok and Reels
+
+All in one tool.
+
+Ideal for repurposing podcasts, interviews or long videos without having to edit each clip from scratch.
+
+And yes, you can see the code on GitHub.
+
+Link below 👇</div><div class="txt orig" lang="">🚨 ESTO ES UNA LOCURA
 
 Un proyecto de GitHub que convierte vídeos largos en clips cortos listos para publicar en redes.
 
@@ -87,8 +257,8 @@ Ideal para reutilizar podcasts, entrevistas o vídeos largos sin tener que edita
 
 Y sí, puedes ver el código en GitHub.
 
-Enlace abajo 👇</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2110325721277042688_poster.jpg"><source src="media/13_2110325721277042688.mp4" type="video/mp4"><a href="https://x.com/albacnt/status/2110326141210730563"><img src="media/13_2110325721277042688_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/albacnt/status/2110326141210730563" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Workflows" data-q="📝claude opus 5.5でblenderの3dシーンを作る手順が、わかりやすすぎる
+Enlace abajo 👇</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2110325721277042688_poster.jpg"><source src="media/13_2110325721277042688.mp4" type="video/mp4"><a href="https://x.com/albacnt/status/2110326141210730563"><img src="media/13_2110325721277042688_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/albacnt/status/2110326141210730563" target="_blank" rel="noopener">Open in X</a><span>Video · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post wide" data-cat="Workflows" data-q="📝claude opus 5.5でblenderの3dシーンを作る手順が、わかりやすすぎる
 
 
 
@@ -107,10 +277,47 @@ Enlace abajo 👇</div><div class="media n1"><video controls playsinline preload
 
 私もblenderでアセットを作りまくっていたけど、この役割分担はすぐ真似したい
 
-記事要約はリプ欄へ　↓ blender 3d scenes with opus 5.5 + blender mcp tetumemo テツメモ｜ai図解×検証｜newsletter">
-<div class="top"><span class="cat">Workflows</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1740572915685584896/7nsuwNFv_normal.jpg" alt=""><div><b>テツメモ｜AI図解×検証｜Newsletter</b> <span class="h">@tetumemo · 2026-10-13</span></div></div>
-<div class="txt">📝Claude Opus 5.5でBlenderの3Dシーンを作る手順が、わかりやすすぎる
+記事要約はリプ欄へ　↓ 📝the steps for building 3d scenes in blender with claude opus 5.5 are way too easy to follow
+
+
+
+1. install blender 5.2.2 and the official blender mcp server
+2. in claude, set opus 5.5 to high effort and confirm the connection with /mcp
+3. install blenderkit (over 140,000 free models, materials and hdris)
+4. ask &quot;can you see the blenderkit library?&quot; and have it run a test search first
+5. ask with reference images and plain language (like talking to a junior 3d designer; no structured prompt needed)
+6. for characters, ask for the rig in the same prompt
+7. preview at 480p first, then do the final render at the end (1080p can take 1–2 hours)
+
+the most important rule is &quot;don&#x27;t make it build a chair from scratch&quot;
+apparently it eats tokens and the result looks fake, too
+
+pull the assets from the library and give opus the job of arranging them
+
+i&#x27;ve also been making tons of assets in blender, but i want to copy this division of roles right away
+
+article summary in the replies　↓ blender 3d scenes with opus 5.5 + blender mcp tetumemo テツメモ｜ai図解×検証｜newsletter workflows">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1740572915685584896/7nsuwNFv_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>テツメモ｜AI図解×検証｜Newsletter</b><span>@tetumemo · 13 Oct 2026</span></div></header>
+<p class="tr">Translated from Japanese<button type="button" onclick="this.closest('.post').classList.toggle('show-orig');this.textContent=this.textContent=='Show original'?'Show translation':'Show original'">Show original</button></p><div class="txt en">📝The steps for building 3D scenes in Blender with Claude Opus 5.5 are way too easy to follow
+
+
+
+1. Install Blender 5.2.2 and the official Blender MCP server
+2. In Claude, set Opus 5.5 to high effort and confirm the connection with /mcp
+3. Install BlenderKit (over 140,000 free models, materials and HDRIs)
+4. Ask &quot;Can you see the BlenderKit library?&quot; and have it run a test search first
+5. Ask with reference images and plain language (like talking to a junior 3D designer; no structured prompt needed)
+6. For characters, ask for the rig in the same prompt
+7. Preview at 480p first, then do the final render at the end (1080p can take 1–2 hours)
+
+The most important rule is &quot;don&#x27;t make it build a chair from scratch&quot;
+Apparently it eats tokens and the result looks fake, too
+
+Pull the assets from the library and give Opus the job of arranging them
+
+I&#x27;ve also been making tons of assets in Blender, but I want to copy this division of roles right away
+
+Article summary in the replies　↓</div><div class="txt orig" lang="">📝Claude Opus 5.5でBlenderの3Dシーンを作る手順が、わかりやすすぎる
 
 
 
@@ -129,102 +336,27 @@ Enlace abajo 👇</div><div class="media n1"><video controls playsinline preload
 
 私もBlenderでアセットを作りまくっていたけど、この役割分担はすぐ真似したい
 
-記事要約はリプ欄へ　↓</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2109660971442556929_poster.jpg"><source src="media/13_2109660971442556929.mp4" type="video/mp4"><a href="https://x.com/tetumemo/status/2110142146737303597"><img src="media/13_2109660971442556929_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/tetumemo/status/2110142146737303597" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Video" data-q="omnihuman 2.0 is live.
-
-it doesn&#x27;t just sync lips — it understands your audio. feed it any track, speech, music or dialogue, and it reads the tone, emotion, and every word, then performs it. every syllable lands.
-
-now generate up to 5 minutes of video in a single continuous shot, up from 60 seconds, with no stitching required.
-
-and 𝟰𝟬%+ 𝗰𝗵𝗲𝗮𝗽𝗲𝗿 — $0.12 → $0.07/sec. better quality, lower cost.
-
-deeper understanding. longer takes. lower price.
-
-https://www.byteplus.com/en/product/omnihuman omnihuman 2.0 (byteplus) byteplusglobal byteplus">
-<div class="top"><span class="cat">Video</span><span class="price paid">Paid</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2076879408246493184/APDqyR2i_normal.jpg" alt=""><div><b>BytePlus</b> <span class="h">@BytePlusGlobal · 2026-10-15</span></div></div>
-<div class="txt">OmniHuman 2.0 is live.
-
-It doesn&#x27;t just sync lips — it understands your audio. Feed it any track, speech, music or dialogue, and it reads the tone, emotion, and every word, then performs it. Every syllable lands.
-
-Now generate up to 5 minutes of video in a single continuous shot, up from 60 seconds, with no stitching required.
-
-And 𝟰𝟬%+ 𝗰𝗵𝗲𝗮𝗽𝗲𝗿 — $0.12 → $0.07/sec. Better quality, lower cost.
-
-Deeper understanding. Longer takes. Lower price.
-
-<a href="https://www.byteplus.com/en/product/OmniHuman" target="_blank" rel="noopener">https://www.byteplus.com/en/product/OmniHuman</a></div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2110642803445530624_poster.jpg"><source src="https://video.twimg.com/amplify_video/2110642803445530624/vid/avc1/3840x2160/ghMxA50CivZxJ7dI.mp4" type="video/mp4"><a href="https://x.com/BytePlusGlobal/status/2110643232363422074"><img src="media/13_2110642803445530624_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/BytePlusGlobal/status/2110643232363422074" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Video" data-q="you can generate unlimited ai videos with wan 3.0..
-
-seedance 2.5 has been the go-to for high quality ai video, and you pay for every second of it
-
-wan 3.0 is now unlimited on higgsfield
-
-&gt; ⁠generate as much as you want, no credits
-&gt; high quality results
-&gt; the api is 60% off rn, $0.042 per second
-&gt; up to 9 times cheaper than seedance 2.5 on the api
-
-i&#x27;ve said this once and i&#x27;ll say it again, you don&#x27;t need seedance 2.5 for 99% of use cases wan 3.0 unlimited on higgsfield mho_23 miko">
-<div class="top"><span class="cat">Video</span><span class="price paid">Paid</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1973504131806498816/h5gkF8zc_normal.jpg" alt=""><div><b>Miko</b> <span class="h">@Mho_23 · 2026-10-14</span></div></div>
-<div class="txt">you can generate UNLIMITED AI videos with WAN 3.0..
-
-Seedance 2.5 has been the go-to for high quality AI video, and you pay for every second of it
-
-WAN 3.0 is now UNLIMITED on Higgsfield
-
-&gt; ⁠generate as much as you want, no credits
-&gt; high quality results
-&gt; the API is 60% off rn, $0.042 per second
-&gt; up to 9 times cheaper than Seedance 2.5 on the API
-
-i&#x27;ve said this once and i&#x27;ll say it again, you don&#x27;t need Seedance 2.5 for 99% of use cases</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2110412166180315139_poster.jpg"><source src="media/13_2110412166180315139.mp4" type="video/mp4"><a href="https://x.com/Mho_23/status/2110412552794468547"><img src="media/13_2110412166180315139_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/Mho_23/status/2110412552794468547" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="3D" data-q="هذه أداة جدية تقوم بنفس عمل blender بلغة rust أكثر دقة واسرع ب٧٠٪ في البناء.
+記事要約はリプ欄へ　↓</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2109660971442556929_poster.jpg"><source src="media/13_2109660971442556929.mp4" type="video/mp4"><a href="https://x.com/tetumemo/status/2110142146737303597"><img src="media/13_2109660971442556929_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/tetumemo/status/2110142146737303597" target="_blank" rel="noopener">Open in X</a><span>Workflows · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post" data-cat="3D" data-q="هذه أداة جدية تقوم بنفس عمل blender بلغة rust أكثر دقة واسرع ب٧٠٪ في البناء.
 
 تم عمل مجسمات 3d للفيديو الاخير لقُدرة &quot;كيف ترى&quot; عن طريقه.
 
-توه نازل ماله يومين بس حبيت اجربه قبل ارسله. https://twitter.com/sinaatalay/status/2109045945149395421 rust-based blender-like 3d tool nevermind_turki turki">
-<div class="top"><span class="cat">3D</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1887545674549305345/AXU4KEfS_normal.jpg" alt=""><div><b>Turki</b> <span class="h">@nevermind_turki · 2026-10-13</span></div></div>
-<div class="txt">هذه أداة جدية تقوم بنفس عمل Blender بلغة Rust أكثر دقة واسرع ب٧٠٪ في البناء.
+توه نازل ماله يومين بس حبيت اجربه قبل ارسله. https://twitter.com/sinaatalay/status/2109045945149395421 this is a serious tool that does the same job as blender, written in rust, more precise and 70% faster at building.
+
+the 3d models for the latest video on the &quot;how do you see&quot; channel were made with it.
+
+it just came out two days ago, but i wanted to try it before sending it. https://twitter.com/sinaatalay/status/2109045945149395421 rust-based blender-like 3d tool nevermind_turki turki 3d">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1887545674549305345/AXU4KEfS_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Turki</b><span>@nevermind_turki · 13 Oct 2026</span></div></header>
+<p class="tr">Translated from Arabic<button type="button" onclick="this.closest('.post').classList.toggle('show-orig');this.textContent=this.textContent=='Show original'?'Show translation':'Show original'">Show original</button></p><div class="txt en">This is a serious tool that does the same job as Blender, written in Rust, more precise and 70% faster at building.
+
+The 3D models for the latest video on the &quot;How Do You See&quot; channel were made with it.
+
+It just came out two days ago, but I wanted to try it before sending it. <a href="https://twitter.com/sinaatalay/status/2109045945149395421" target="_blank" rel="noopener">https://twitter.com/sinaatalay/status/2109045945149395421</a></div><div class="txt orig" lang="">هذه أداة جدية تقوم بنفس عمل Blender بلغة Rust أكثر دقة واسرع ب٧٠٪ في البناء.
 
 تم عمل مجسمات 3D للفيديو الاخير لقُدرة &quot;كيف ترى&quot; عن طريقه.
 
 توه نازل ماله يومين بس حبيت اجربه قبل ارسله. <a href="https://twitter.com/sinaatalay/status/2109045945149395421" target="_blank" rel="noopener">https://twitter.com/sinaatalay/status/2109045945149395421</a></div>
-<div class="foot"><a class="btn" href="https://x.com/nevermind_turki/status/2110062803398644136" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Sound/Music" data-q="ai videos finally sound real.
-
-introducing mirelo sfx 2.0.
-
-it watches your video, cuts the music you never prompted, keeps the dialogue, and builds a full sound design synced to the action and consistent across any length clips.
-
-you’ve made it look right. we’ll make it sound right.
-
-live today through our api, on @runwayml  and @fal.
-
-other platforms coming soon. (thread) mirelo sfx 2.0 mireloai mirelo">
-<div class="top"><span class="cat">Sound/Music</span><span class="price paid">Paid</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2056684878804987904/SKxWDUAT_normal.jpg" alt=""><div><b>Mirelo</b> <span class="h">@MireloAI · 2026-10-14</span></div></div>
-<div class="txt">AI Videos finally sound real.
-
-Introducing Mirelo SFX 2.0.
-
-It watches your video, cuts the music you never prompted, keeps the dialogue, and builds a full sound design synced to the action and consistent across any length clips.
-
-You’ve made it look right. We’ll make it sound right.
-
-Live today through our API, on <a href="https://x.com/runwayml" target="_blank" rel="noopener">@runwayml</a>  and <a href="https://x.com/fal" target="_blank" rel="noopener">@fal</a>.
-
-Other platforms coming soon. (Thread)</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2110360533803130880_poster.jpg"><source src="media/13_2110360533803130880.mp4" type="video/mp4"><a href="https://x.com/MireloAI/status/2110360787780800611"><img src="media/13_2110360533803130880_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/MireloAI/status/2110360787780800611" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="New Features/Models" data-q="seperate fable usage is gone in claude desktop....... oh lord please
-
-open ai will never recover 🥺 claude desktop: no separate fable usage embw_l0x embw_l0x">
-<div class="top"><span class="cat">New Features/Models</span><span class="price paid">Paid</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2110368516708696064/qhaX7Boi_normal.jpg" alt=""><div><b>embw_l0x</b> <span class="h">@embw_l0x · 2026-10-14</span></div></div>
-<div class="txt">Seperate Fable usage is gone in Claude desktop....... Oh lord please
-
-Open AI will never recover 🥺</div><div class="media n1"><img src="media/3_2110480186432991232.png" alt="" loading="lazy"></div>
-<div class="foot"><a class="btn" href="https://x.com/embw_l0x/status/2110480484761301315" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Sound/Music" data-q="🚨 adiós a elevenlabs
+<footer class="foot"><a class="btn" href="https://x.com/nevermind_turki/status/2110062803398644136" target="_blank" rel="noopener">Open in X</a><span>3D · from Yuval</span></footer></article><article class="tile post wide" data-cat="Sound/Music" data-q="🚨 adiós a elevenlabs
 
 un desarrollador ha creado una alternativa open source para clonar voces, doblar vídeos y generar audio desde tu propio ordenador.
 
@@ -246,10 +378,53 @@ el proyecto está en github.
 
 guárdate esto, vas a querer probarlo.
 
-link abajo 👇 voicestudio albacnt alba">
-<div class="top"><span class="cat">Sound/Music</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2094133346049662976/-3uR9Zf1_normal.jpg" alt=""><div><b>Alba</b> <span class="h">@albacnt · 2026-10-11</span></div></div>
-<div class="txt">🚨 ADIÓS A ELEVENLABS
+link abajo 👇 🚨 goodbye elevenlabs
+
+a developer has created an open-source alternative for cloning voices, dubbing videos and generating audio from your own computer.
+
+it&#x27;s called voicestudio and it&#x27;s insane.
+
+it lets you:
+
+→ clone voices from a reference clip
+→ dub videos into other languages
+→ generate audiobooks and voiceovers
+→ transcribe audio to text
+→ choose between multiple text-to-speech engines
+
+all from one tool.
+
+and the best part: you can run the supported models locally, without depending on an external api for every generation.
+
+the project is on github.
+
+save this, you&#x27;ll want to try it.
+
+link below 👇 voicestudio albacnt alba sound/music">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2094133346049662976/-3uR9Zf1_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Alba</b><span>@albacnt · 11 Oct 2026</span></div></header>
+<p class="tr">Translated from Spanish<button type="button" onclick="this.closest('.post').classList.toggle('show-orig');this.textContent=this.textContent=='Show original'?'Show translation':'Show original'">Show original</button></p><div class="txt en">🚨 GOODBYE ELEVENLABS
+
+A developer has created an open-source alternative for cloning voices, dubbing videos and generating audio from your own computer.
+
+It&#x27;s called VoiceStudio and it&#x27;s insane.
+
+It lets you:
+
+→ Clone voices from a reference clip
+→ Dub videos into other languages
+→ Generate audiobooks and voiceovers
+→ Transcribe audio to text
+→ Choose between multiple text-to-speech engines
+
+All from one tool.
+
+And the best part: you can run the supported models locally, without depending on an external API for every generation.
+
+The project is on GitHub.
+
+Save this, you&#x27;ll want to try it.
+
+Link below 👇</div><div class="txt orig" lang="">🚨 ADIÓS A ELEVENLABS
 
 Un desarrollador ha creado una alternativa open source para clonar voces, doblar vídeos y generar audio desde tu propio ordenador.
 
@@ -271,8 +446,8 @@ El proyecto está en GitHub.
 
 Guárdate esto, vas a querer probarlo.
 
-Link abajo 👇</div><div class="media n1"><img src="media/3_2109286395470561280.png" alt="" loading="lazy"></div>
-<div class="foot"><a class="btn" href="https://x.com/albacnt/status/2109286762438603208" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Motion/Animation" data-q="introducing manimgx, the 3d animation engine for agents.
+Link abajo 👇</div><div class="media n1"><img src="media/3_2109286395470561280.png" alt="Image from the post" loading="lazy"></div>
+<footer class="foot"><a class="btn" href="https://x.com/albacnt/status/2109286762438603208" target="_blank" rel="noopener">Open in X</a><span>Sound/Music · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post wide" data-cat="Motion/Animation" data-q="introducing manimgx, the 3d animation engine for agents.
 
 - blazingly fast: 90× faster than manimce
 - rust + wgpu core
@@ -286,9 +461,8 @@ for 40 years we built guis for humans. now we build apis for agents.
 
 try it. paste this into your favorite coding agent:
 
-&quot;follow http://manimgx.academa.ai/llms.txt to make me a 3d animation of the solar system, and open it.&quot; manimgx sinaatalay sina atalay">
-<div class="top"><span class="cat">Motion/Animation</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1998050119262863360/I6ervtqY_normal.png" alt=""><div><b>Sina Atalay</b> <span class="h">@sinaatalay · 2026-10-10</span></div></div>
+&quot;follow http://manimgx.academa.ai/llms.txt to make me a 3d animation of the solar system, and open it.&quot;  manimgx sinaatalay sina atalay motion/animation">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1998050119262863360/I6ervtqY_normal.png" alt="" width="40" height="40" loading="lazy"><div><b>Sina Atalay</b><span>@sinaatalay · 10 Oct 2026</span></div></header>
 <div class="txt">Introducing ManimGX, the 3D animation engine for agents.
 
 - Blazingly fast: 90× faster than ManimCE
@@ -303,62 +477,61 @@ For 40 years we built GUIs for humans. Now we build APIs for agents.
 
 Try it. Paste this into your favorite coding agent:
 
-&quot;Follow <a href="http://manimgx.academa.ai/llms.txt" target="_blank" rel="noopener">http://manimgx.academa.ai/llms.txt</a> to make me a 3D animation of the solar system, and open it.&quot;</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2109040311934889984_poster.jpg"><source src="https://video.twimg.com/amplify_video/2109040311934889984/vid/avc1/3840x2160/qn9nunprYEhsCbYY.mp4" type="video/mp4"><a href="https://x.com/sinaatalay/status/2109045945149395421"><img src="media/13_2109040311934889984_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/sinaatalay/status/2109045945149395421" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Game Dev" data-q="one picture in, and an animated sprite comes out with one button.
+&quot;Follow <a href="http://manimgx.academa.ai/llms.txt" target="_blank" rel="noopener">http://manimgx.academa.ai/llms.txt</a> to make me a 3D animation of the solar system, and open it.&quot;</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2109040311934889984_poster.jpg"><source src="https://video.twimg.com/amplify_video/2109040311934889984/vid/avc1/3840x2160/qn9nunprYEhsCbYY.mp4" type="video/mp4"><a href="https://x.com/sinaatalay/status/2109045945149395421"><img src="media/13_2109040311934889984_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/sinaatalay/status/2109045945149395421" target="_blank" rel="noopener">Open in X</a><span>Motion/Animation · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post" data-cat="Game Dev" data-q="one picture in, and an animated sprite comes out with one button.
 i built miso editor to make the characters in my game, and it just got a big update.
 beta coming soon on https://itch.io and steam.
 full video in the replies.↓↓↓
 
-#gamedev #indiegame miso editor fnao32978420 fire field - steam early access">
-<div class="top"><span class="cat">Game Dev</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2086121463212544001/0psP9iHO_normal.jpg" alt=""><div><b>Fire Field - Steam Early Access</b> <span class="h">@Fnao32978420 · 2026-10-10</span></div></div>
+#gamedev #indiegame  miso editor fnao32978420 fire field - steam early access game dev">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2086121463212544001/0psP9iHO_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Fire Field - Steam Early Access</b><span>@Fnao32978420 · 10 Oct 2026</span></div></header>
 <div class="txt">One picture in, and an animated sprite comes out with one button.
 I built Miso Editor to make the characters in my game, and it just got a big update.
 Beta coming soon on <a href="https://itch.io" target="_blank" rel="noopener">https://itch.io</a> and Steam.
 Full video in the replies.↓↓↓
 
-<a href="https://x.com/hashtag/gamedev" target="_blank" rel="noopener">#gamedev</a> <a href="https://x.com/hashtag/indiegame" target="_blank" rel="noopener">#indiegame</a></div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2108902171110723584_poster.jpg"><source src="media/13_2108902171110723584.mp4" type="video/mp4"><a href="https://x.com/Fnao32978420/status/2108902279508312247"><img src="media/13_2108902171110723584_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/Fnao32978420/status/2108902279508312247" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Workflows" data-q="finally... i made sound design prompt that fixes music for opus 5.5 &amp; fable 5.5 motion design
+<a href="https://x.com/hashtag/gamedev" target="_blank" rel="noopener">#gamedev</a> <a href="https://x.com/hashtag/indiegame" target="_blank" rel="noopener">#indiegame</a></div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2108902171110723584_poster.jpg"><source src="media/13_2108902171110723584.mp4" type="video/mp4"><a href="https://x.com/Fnao32978420/status/2108902279508312247"><img src="media/13_2108902171110723584_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/Fnao32978420/status/2108902279508312247" target="_blank" rel="noopener">Open in X</a><span>Game Dev · from Yuval</span></footer></article><article class="tile post" data-cat="Workflows" data-q="finally... i made sound design prompt that fixes music for opus 5.5 &amp; fable 5.5 motion design
 
 the difference is f*cking unreal...
 
 no more cheap synth beeps: sfx → music → timing → in one prompt
 
-send it to opus 5.5 &amp; fable 5.5 and thank me later. then read how to get paid from this below ↓ sound-design prompt for opus/fable motion design 0xcodila codila">
-<div class="top"><span class="cat">Workflows</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2064453666661441536/nj8n8Mei_normal.jpg" alt=""><div><b>codila</b> <span class="h">@0xCodila · 2026-10-09</span></div></div>
+send it to opus 5.5 &amp; fable 5.5 and thank me later. then read how to get paid from this below ↓  sound-design prompt for opus/fable motion design 0xcodila codila workflows">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2064453666661441536/nj8n8Mei_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>codila</b><span>@0xCodila · 9 Oct 2026</span></div></header>
 <div class="txt">Finally... I made sound design prompt that fixes music for Opus 5.5 &amp; Fable 5.5 motion design
 
 The difference is f*cking unreal...
 
 No more cheap synth beeps: SFX → music → timing → in one prompt
 
-Send it to Opus 5.5 &amp; Fable 5.5 and thank me later. Then read how to get paid from this below ↓</div><div class="media n1"><img src="media/3_2108616485635551232.jpg" alt="" loading="lazy"></div>
-<div class="foot"><a class="btn" href="https://x.com/0xCodila/status/2108621038141546616" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Motion/Animation" data-q="it&#x27;s hard to believe, but this motion has 0% video generation.
+Send it to Opus 5.5 &amp; Fable 5.5 and thank me later. Then read how to get paid from this below ↓</div><div class="media n1"><img src="media/3_2108616485635551232.jpg" alt="Image from the post" loading="lazy"></div>
+<footer class="foot"><a class="btn" href="https://x.com/0xCodila/status/2108621038141546616" target="_blank" rel="noopener">Open in X</a><span>Workflows · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post" data-cat="Motion/Animation" data-q="it&#x27;s hard to believe, but this motion has 0% video generation.
 
 every frame and pixel is written as a code in claude + higgsfield katana.
 
-motion design will never be the same.  https://twitter.com/higgsfield/status/2108294775644585998 higgsfield katana higgsfield_ai higgsfield ai 🧩">
-<div class="top"><span class="cat">Motion/Animation</span><span class="price paid">Paid</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1906739239183630336/907a7JTU_normal.jpg" alt=""><div><b>Higgsfield AI 🧩</b> <span class="h">@higgsfield_ai · 2026-10-09</span></div></div>
+motion design will never be the same.  https://twitter.com/higgsfield/status/2108294775644585998  higgsfield katana higgsfield_ai higgsfield ai 🧩 motion/animation">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1906739239183630336/907a7JTU_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Higgsfield AI 🧩</b><span>@higgsfield_ai · 9 Oct 2026</span></div></header>
 <div class="txt">It&#x27;s hard to believe, but this motion has 0% video generation.
 
 Every frame and pixel is written as a code in Claude + Higgsfield Katana.
 
-Motion design will never be the same.  <a href="https://twitter.com/higgsfield/status/2108294775644585998" target="_blank" rel="noopener">https://twitter.com/higgsfield/status/2108294775644585998</a></div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2108377557741760512_poster.jpg"><source src="https://video.twimg.com/amplify_video/2108377557741760512/vid/avc1/3840x2160/mJp4VpOtfnAy4Al6.mp4" type="video/mp4"><a href="https://x.com/higgsfield_ai/status/2108378429737628038"><img src="media/13_2108377557741760512_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/higgsfield_ai/status/2108378429737628038" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Ron</span></div></article><article class="card" data-cat="Game Dev" data-q="🚨new experiment 🚨
+Motion design will never be the same.  <a href="https://twitter.com/higgsfield/status/2108294775644585998" target="_blank" rel="noopener">https://twitter.com/higgsfield/status/2108294775644585998</a></div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2108377557741760512_poster.jpg"><source src="https://video.twimg.com/amplify_video/2108377557741760512/vid/avc1/3840x2160/mJp4VpOtfnAy4Al6.mp4" type="video/mp4"><a href="https://x.com/higgsfield_ai/status/2108378429737628038"><img src="media/13_2108377557741760512_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/higgsfield_ai/status/2108378429737628038" target="_blank" rel="noopener">Open in X</a><span>Motion/Animation · <span class="price">Paid</span> · from Ron</span></footer></article><article class="tile post" data-cat="Game Dev" data-q="🚨new experiment 🚨
 
 playground is an experimental gaming platform that lets you create your own games with zero coding experience. if you can think it, you can play it.
 
-go to https://labs.google/playground to learn more! available to users 18+ in the us. google labs playground googlelabs google labs">
-<div class="top"><span class="cat">Game Dev</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1792661411102863360/fzzB7K-f_normal.png" alt=""><div><b>Google Labs</b> <span class="h">@GoogleLabs · 2026-10-07</span></div></div>
+go to https://labs.google/playground to learn more! available to users 18+ in the us.  google labs playground googlelabs google labs game dev">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1792661411102863360/fzzB7K-f_normal.png" alt="" width="40" height="40" loading="lazy"><div><b>Google Labs</b><span>@GoogleLabs · 7 Oct 2026</span></div></header>
 <div class="txt">🚨NEW EXPERIMENT 🚨
 
 Playground is an experimental gaming platform that lets you create your own games with zero coding experience. If you can think it, you can play it.
 
-Go to <a href="https://labs.google/playground" target="_blank" rel="noopener">https://labs.google/playground</a> to learn more! Available to users 18+ in the US.</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2107799852545724416_poster.jpg"><source src="https://video.twimg.com/amplify_video/2107799852545724416/vid/avc1/1920x1080/H6AH14cZs7TjcTgF.mp4" type="video/mp4"><a href="https://x.com/GoogleLabs/status/2107800195748737042"><img src="media/13_2107799852545724416_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/GoogleLabs/status/2107800195748737042" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Ron</span></div></article><article class="card" data-cat="Game Dev" data-q="introducing genex
+Go to <a href="https://labs.google/playground" target="_blank" rel="noopener">https://labs.google/playground</a> to learn more! Available to users 18+ in the US.</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2107799852545724416_poster.jpg"><source src="https://video.twimg.com/amplify_video/2107799852545724416/vid/avc1/1920x1080/H6AH14cZs7TjcTgF.mp4" type="video/mp4"><a href="https://x.com/GoogleLabs/status/2107800195748737042"><img src="media/13_2107799852545724416_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/GoogleLabs/status/2107800195748737042" target="_blank" rel="noopener">Open in X</a><span>Game Dev · <span class="price">Free</span> · from Ron</span></footer></article><article class="tile post" data-cat="Video" data-q="oh.. did i mention that it&#x27;s completely free? https://twitter.com/hyperframes_/status/2107149824189698558  hyperframes (heygen) hyperframes_ hyperframes video">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2050290878221291520/ZNexbFre_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>HyperFrames</b><span>@HyperFrames_ · 5 Oct 2026</span></div></header>
+<div class="txt">oh.. did i mention that it&#x27;s completely free? <a href="https://twitter.com/HyperFrames_/status/2107149824189698558" target="_blank" rel="noopener">https://twitter.com/HyperFrames_/status/2107149824189698558</a></div>
+<footer class="foot"><a class="btn" href="https://x.com/HyperFrames_/status/2107168094095622609" target="_blank" rel="noopener">Open in X</a><span>Video · <span class="price">Free</span> · from Ron</span></footer></article><article class="tile post" data-cat="Game Dev" data-q="introducing genex
 
 the desktop app to build games with ai
 
@@ -368,9 +541,8 @@ the desktop app to build games with ai
 → three.js + blender, meshy &amp; other tools 
 → unity &amp; unreal plugins soon
 
-https://genex.games/desktop genex genex_games genex">
-<div class="top"><span class="cat">Game Dev</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1978921429753020416/dojn4cO0_normal.jpg" alt=""><div><b>Genex</b> <span class="h">@genex_games · 2026-10-05</span></div></div>
+https://genex.games/desktop  genex genex_games genex game dev">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1978921429753020416/dojn4cO0_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Genex</b><span>@genex_games · 5 Oct 2026</span></div></header>
 <div class="txt">Introducing Genex
 
 The desktop app to build games with AI
@@ -381,36 +553,8 @@ The desktop app to build games with AI
 → Three.js + Blender, Meshy &amp; other tools 
 → Unity &amp; Unreal plugins soon
 
-<a href="https://genex.games/desktop" target="_blank" rel="noopener">https://genex.games/desktop</a></div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2107142018635841536_poster.jpg"><source src="https://video.twimg.com/amplify_video/2107142018635841536/vid/avc1/1920x1080/XD5q5JaiklhdPURG.mp4" type="video/mp4"><a href="https://x.com/genex_games/status/2107148754633507237"><img src="media/13_2107142018635841536_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/genex_games/status/2107148754633507237" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Video" data-q="oh.. did i mention that it&#x27;s completely free? https://twitter.com/hyperframes_/status/2107149824189698558 hyperframes (heygen) hyperframes_ hyperframes">
-<div class="top"><span class="cat">Video</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2050290878221291520/ZNexbFre_normal.jpg" alt=""><div><b>HyperFrames</b> <span class="h">@HyperFrames_ · 2026-10-05</span></div></div>
-<div class="txt">oh.. did i mention that it&#x27;s completely free? <a href="https://twitter.com/HyperFrames_/status/2107149824189698558" target="_blank" rel="noopener">https://twitter.com/HyperFrames_/status/2107149824189698558</a></div>
-<div class="foot"><a class="btn" href="https://x.com/HyperFrames_/status/2107168094095622609" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Ron</span></div></article><article class="card" data-cat="Agents &amp; Apps" data-q="introducing agentcraft: a multi-agent harness that runs inside minecraft ⛏️
-
-a team of claude agents plans, builds in real worktrees, and walks over when they need you. agentcraft blendibyl blendi">
-<div class="top"><span class="cat">Agents &amp; Apps</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2107980406503161856/OscTZXSY_normal.jpg" alt=""><div><b>Blendi</b> <span class="h">@BlendiByl · 2026-10-03</span></div></div>
-<div class="txt">Introducing AgentCraft: a multi-agent harness that runs inside Minecraft ⛏️
-
-A team of Claude agents plans, builds in real worktrees, and walks over when they need you.</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2106224118391828480_poster.jpg"><source src="https://video.twimg.com/amplify_video/2106224118391828480/vid/avc1/1920x1080/XL5njGF8k3u1Z4zW.mp4" type="video/mp4"><a href="https://x.com/BlendiByl/status/2106226258984264042"><img src="media/13_2106224118391828480_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/BlendiByl/status/2106226258984264042" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Sound/Music" data-q="eleven v4 is insane! 🤯
-
-here&#x27;s my 44-sec spec ad for it.
-
-i wrote a script of everything an ai voice &quot;can&#x27;t do.&quot; then made eleven v4 read it out loud.
-
-sound on 🔊 elevenlabs eleven v4 buraktuyan burak tuyan">
-<div class="top"><span class="cat">Sound/Music</span><span class="price paid">Paid</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2004701128026472448/X2R1vyOP_normal.jpg" alt=""><div><b>Burak Tuyan</b> <span class="h">@buraktuyan · 2026-10-02</span></div></div>
-<div class="txt">Eleven v4 is INSANE! 🤯
-
-Here&#x27;s my 44-sec spec ad for it.
-
-I wrote a script of everything an AI voice &quot;can&#x27;t do.&quot; Then made Eleven v4 read it out loud.
-
-Sound on 🔊</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2106018106569015296_poster.jpg"><source src="media/13_2106018106569015296.mp4" type="video/mp4"><a href="https://x.com/buraktuyan/status/2106018840383717513"><img src="media/13_2106018106569015296_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/buraktuyan/status/2106018840383717513" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Ron</span></div></article><article class="card" data-cat="Workflows" data-q="day 18. building the game i&#x27;ve dreamed of for 15 years with ai.
+<a href="https://genex.games/desktop" target="_blank" rel="noopener">https://genex.games/desktop</a></div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2107142018635841536_poster.jpg"><source src="https://video.twimg.com/amplify_video/2107142018635841536/vid/avc1/1920x1080/XD5q5JaiklhdPURG.mp4" type="video/mp4"><a href="https://x.com/genex_games/status/2107148754633507237"><img src="media/13_2107142018635841536_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/genex_games/status/2107148754633507237" target="_blank" rel="noopener">Open in X</a><span>Game Dev · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post wide" data-cat="Workflows" data-q="day 18. building the game i&#x27;ve dreamed of for 15 years with ai.
 
 i&#x27;ve learned how to build proper levels with ai. i take the design and the architecture, and ai helps me put it all together and check the balance.
 
@@ -426,9 +570,8 @@ once the plan was ready, i handed everything to claude, and 3-4 hours later i ha
 
 i showed it one example, it picked up what worked, and we turned that into a skill for the next levels.
 
-the video is a quick flight over level two, then how it got there, from my first sketch to the version i play now. building game levels with ai (stefan_3d_ai) stefan_3d_ai stefan 3d ai">
-<div class="top"><span class="cat">Workflows</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1929963548442275844/tQZfTm8T_normal.jpg" alt=""><div><b>Stefan 3D AI</b> <span class="h">@Stefan_3D_AI · 2026-10-03</span></div></div>
+the video is a quick flight over level two, then how it got there, from my first sketch to the version i play now.  building game levels with ai (stefan_3d_ai) stefan_3d_ai stefan 3d ai workflows">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1929963548442275844/tQZfTm8T_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Stefan 3D AI</b><span>@Stefan_3D_AI · 3 Oct 2026</span></div></header>
 <div class="txt">Day 18. Building the game I&#x27;ve dreamed of for 15 years with AI.
 
 I&#x27;ve learned how to build proper levels with AI. I take the design and the architecture, and AI helps me put it all together and check the balance.
@@ -445,24 +588,57 @@ Once the plan was ready, I handed everything to Claude, and 3-4 hours later I ha
 
 I showed it one example, it picked up what worked, and we turned that into a skill for the next levels.
 
-The video is a quick flight over level two, then how it got there, from my first sketch to the version I play now.</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2106291781981872128_poster.jpg"><source src="media/13_2106291781981872128.mp4" type="video/mp4"><a href="https://x.com/Stefan_3D_AI/status/2106291980619890818"><img src="media/13_2106291781981872128_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/Stefan_3D_AI/status/2106291980619890818" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="3D" data-q="3d制作も「一人で何役もこなす」時代へ。
+The video is a quick flight over level two, then how it got there, from my first sketch to the version I play now.</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2106291781981872128_poster.jpg"><source src="media/13_2106291781981872128.mp4" type="video/mp4"><a href="https://x.com/Stefan_3D_AI/status/2106291980619890818"><img src="media/13_2106291781981872128_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/Stefan_3D_AI/status/2106291980619890818" target="_blank" rel="noopener">Open in X</a><span>Workflows · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post" data-cat="Agents &amp; Apps" data-q="introducing agentcraft: a multi-agent harness that runs inside minecraft ⛏️
+
+a team of claude agents plans, builds in real worktrees, and walks over when they need you.  agentcraft blendibyl blendi agents &amp; apps">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2107980406503161856/OscTZXSY_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Blendi</b><span>@BlendiByl · 3 Oct 2026</span></div></header>
+<div class="txt">Introducing AgentCraft: a multi-agent harness that runs inside Minecraft ⛏️
+
+A team of Claude agents plans, builds in real worktrees, and walks over when they need you.</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2106224118391828480_poster.jpg"><source src="https://video.twimg.com/amplify_video/2106224118391828480/vid/avc1/1920x1080/XL5njGF8k3u1Z4zW.mp4" type="video/mp4"><a href="https://x.com/BlendiByl/status/2106226258984264042"><img src="media/13_2106224118391828480_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/BlendiByl/status/2106226258984264042" target="_blank" rel="noopener">Open in X</a><span>Agents &amp; Apps · from Yuval</span></footer></article><article class="tile post" data-cat="3D" data-q="3d制作も「一人で何役もこなす」時代へ。
 
 オープンソースのai 3dエディタ「mixar」が登場。
 これまでモデリング、テクスチャリング、ライティングなどを順番に進めていた工程を、複数のaiエージェントが並列で進める。
 
 blenderベースで、byokやcodexにも対応。
- https://twitter.com/nbhargava18/status/2105659350073426345 mixar taziku_co 田中義弘 | taziku ceo / ai × creative">
-<div class="top"><span class="cat">3D</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1401679891737628673/PDBoRG09_normal.jpg" alt=""><div><b>田中義弘 | taziku CEO / AI × Creative</b> <span class="h">@taziku_co · 2026-10-03</span></div></div>
-<div class="txt">3D制作も「一人で何役もこなす」時代へ。
+ https://twitter.com/nbhargava18/status/2105659350073426345 3d production is entering the era of &quot;one person handling many roles.&quot;
+
+&quot;mixar,&quot; an open-source ai 3d editor, has arrived.
+steps that used to be done one after another, like modeling, texturing and lighting, are now handled in parallel by multiple ai agents.
+
+blender-based, with support for byok and codex.
+ https://twitter.com/nbhargava18/status/2105659350073426345 mixar taziku_co 田中義弘 | taziku ceo / ai × creative 3d">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1401679891737628673/PDBoRG09_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>田中義弘 | taziku CEO / AI × Creative</b><span>@taziku_co · 3 Oct 2026</span></div></header>
+<p class="tr">Translated from Japanese<button type="button" onclick="this.closest('.post').classList.toggle('show-orig');this.textContent=this.textContent=='Show original'?'Show translation':'Show original'">Show original</button></p><div class="txt en">3D production is entering the era of &quot;one person handling many roles.&quot;
+
+&quot;Mixar,&quot; an open-source AI 3D editor, has arrived.
+Steps that used to be done one after another, like modeling, texturing and lighting, are now handled in parallel by multiple AI agents.
+
+Blender-based, with support for BYOK and Codex.
+ <a href="https://twitter.com/NBhargava18/status/2105659350073426345" target="_blank" rel="noopener">https://twitter.com/NBhargava18/status/2105659350073426345</a></div><div class="txt orig" lang="">3D制作も「一人で何役もこなす」時代へ。
 
 オープンソースのAI 3Dエディタ「Mixar」が登場。
 これまでモデリング、テクスチャリング、ライティングなどを順番に進めていた工程を、複数のAIエージェントが並列で進める。
 
 Blenderベースで、BYOKやCodexにも対応。
- <a href="https://twitter.com/NBhargava18/status/2105659350073426345" target="_blank" rel="noopener">https://twitter.com/NBhargava18/status/2105659350073426345</a></div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2105657229198462977_poster.jpg"><source src="media/13_2105657229198462977.mp4" type="video/mp4"><a href="https://x.com/taziku_co/status/2106178218864832708"><img src="media/13_2105657229198462977_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/taziku_co/status/2106178218864832708" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Agents &amp; Apps" data-q="🎉 introducing 𝙾𝚙𝚎𝚗𝙳𝚘𝚝𝚜
+ <a href="https://twitter.com/NBhargava18/status/2105659350073426345" target="_blank" rel="noopener">https://twitter.com/NBhargava18/status/2105659350073426345</a></div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2105657229198462977_poster.jpg"><source src="media/13_2105657229198462977.mp4" type="video/mp4"><a href="https://x.com/taziku_co/status/2106178218864832708"><img src="media/13_2105657229198462977_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/taziku_co/status/2106178218864832708" target="_blank" rel="noopener">Open in X</a><span>3D · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post" data-cat="Sound/Music" data-q="eleven v4 is insane! 🤯
+
+here&#x27;s my 44-sec spec ad for it.
+
+i wrote a script of everything an ai voice &quot;can&#x27;t do.&quot; then made eleven v4 read it out loud.
+
+sound on 🔊  elevenlabs eleven v4 buraktuyan burak tuyan sound/music">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2004701128026472448/X2R1vyOP_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Burak Tuyan</b><span>@buraktuyan · 2 Oct 2026</span></div></header>
+<div class="txt">Eleven v4 is INSANE! 🤯
+
+Here&#x27;s my 44-sec spec ad for it.
+
+I wrote a script of everything an AI voice &quot;can&#x27;t do.&quot; Then made Eleven v4 read it out loud.
+
+Sound on 🔊</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2106018106569015296_poster.jpg"><source src="media/13_2106018106569015296.mp4" type="video/mp4"><a href="https://x.com/buraktuyan/status/2106018840383717513"><img src="media/13_2106018106569015296_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/buraktuyan/status/2106018840383717513" target="_blank" rel="noopener">Open in X</a><span>Sound/Music · <span class="price">Paid</span> · from Ron</span></footer></article><article class="tile post wide" data-cat="Agents &amp; Apps" data-q="🎉 introducing 𝙾𝚙𝚎𝚗𝙳𝚘𝚝𝚜
 
 self-hostable, always-on ai coworkers that works with any agent harness.
 
@@ -477,9 +653,8 @@ repo → https://github.com/copilotkit/opendots
 
 powered by @copilotkit and ag-ui.
 
-clone this template and customize it however you want. enterprise-ready. opendots (copilotkit) ataiiam atai barkai">
-<div class="top"><span class="cat">Agents &amp; Apps</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1649413157893316608/qAX0jKbI_normal.jpg" alt=""><div><b>Atai Barkai</b> <span class="h">@ataiiam · 2026-10-01</span></div></div>
+clone this template and customize it however you want. enterprise-ready.  opendots (copilotkit) ataiiam atai barkai agents &amp; apps">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1649413157893316608/qAX0jKbI_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Atai Barkai</b><span>@ataiiam · 1 Oct 2026</span></div></header>
 <div class="txt">🎉 Introducing 𝙾𝚙𝚎𝚗𝙳𝚘𝚝𝚜
 
 Self-hostable, always-on AI coworkers that works with ANY agent harness.
@@ -495,60 +670,54 @@ Repo → <a href="https://github.com/CopilotKit/OpenDots" target="_blank" rel="n
 
 Powered by <a href="https://x.com/CopilotKit" target="_blank" rel="noopener">@CopilotKit</a> and AG-UI.
 
-Clone this template and customize it however you want. Enterprise-ready.</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2105710720109473792_poster.jpg"><source src="media/13_2105710720109473792.mp4" type="video/mp4"><a href="https://x.com/ataiiam/status/2105710796198322659"><img src="media/13_2105710720109473792_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/ataiiam/status/2105710796198322659" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="New Features/Models" data-q="これが私のchatgpt！
-plugin extensionsすげー！ chatgpt plugin extensions gota_bara gota">
-<div class="top"><span class="cat">New Features/Models</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1958190702825000962/3ZQfNdwt_normal.jpg" alt=""><div><b>Gota</b> <span class="h">@gota_bara · 2026-10-01</span></div></div>
-<div class="txt">これが私のChatGPT！
-Plugin Extensionsすげー！</div><div class="media n1"><img src="media/3_2105660714690203648.jpg" alt="" loading="lazy"></div>
-<div class="foot"><a class="btn" href="https://x.com/gota_bara/status/2105663388764508343" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Video" data-q="we&#x27;re releasing heygen video, built for businesses that need production-quality video without production-level costs.
+Clone this template and customize it however you want. Enterprise-ready.</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2105710720109473792_poster.jpg"><source src="media/13_2105710720109473792.mp4" type="video/mp4"><a href="https://x.com/ataiiam/status/2105710796198322659"><img src="media/13_2105710720109473792_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/ataiiam/status/2105710796198322659" target="_blank" rel="noopener">Open in X</a><span>Agents &amp; Apps · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post" data-cat="New Features/Models" data-q="introducing griffin, the first model to pass the video turing test.
+
+48% of people who talked to it live thought it was a real human. previous systems have had a pass rate &lt;3%. it is #1 on nvidia&#x27;s benchmark for full-duplex ai video.
+
+it’s the first human interaction model (him).  tavus griffin tavus tavus new features/models">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1974200616399593472/ZFG0msxY_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Tavus</b><span>@tavus · 1 Oct 2026</span></div></header>
+<div class="txt">Introducing Griffin, the first model to pass the video Turing test.
+
+48% of people who talked to it live thought it was a real human. Previous systems have had a pass rate &lt;3%. It is <a href="https://x.com/hashtag/1" target="_blank" rel="noopener">#1</a> on NVIDIA&#x27;s benchmark for full-duplex AI video.
+
+It’s the first Human Interaction Model (HIM).</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2105703934073683968_poster.jpg"><source src="media/13_2105703934073683968.mp4" type="video/mp4"><a href="https://x.com/tavus/status/2105704169009246248"><img src="media/13_2105703934073683968_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/tavus/status/2105704169009246248" target="_blank" rel="noopener">Open in X</a><span>New Features/Models · <span class="price">Paid</span> · from Ron</span></footer></article><article class="tile post" data-cat="New Features/Models" data-q="これが私のchatgpt！
+plugin extensionsすげー！ this is my chatgpt!
+plugin extensions are amazing! chatgpt plugin extensions gota_bara gota new features/models">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1958190702825000962/3ZQfNdwt_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Gota</b><span>@gota_bara · 1 Oct 2026</span></div></header>
+<p class="tr">Translated from Japanese<button type="button" onclick="this.closest('.post').classList.toggle('show-orig');this.textContent=this.textContent=='Show original'?'Show translation':'Show original'">Show original</button></p><div class="txt en">This is my ChatGPT!
+Plugin Extensions are amazing!</div><div class="txt orig" lang="">これが私のChatGPT！
+Plugin Extensionsすげー！</div><div class="media n1"><img src="media/3_2105660714690203648.jpg" alt="Image from the post" loading="lazy"></div>
+<footer class="foot"><a class="btn" href="https://x.com/gota_bara/status/2105663388764508343" target="_blank" rel="noopener">Open in X</a><span>New Features/Models · from Yuval</span></footer></article><article class="tile post wide" data-cat="3D" data-q="free image-to-3d models don&#x27;t preserve your source image - text, logos and fine detail come back garbled. 
+i got that working with my latest &#x27;pixel match&#x27; feature in my image-to-3dlab: it copies the actual pixels from your source onto the model, even after retopo down to ~5k faces. high quality, low poly 3d models that are riggable and can be animated. 
+one step closer to tripo / meshy level of output, but free and on your own machine. mac + nvidia. 
+try it out here: https://github.com/bingeljell/image-to-3dlab
+
+there&#x27;s lots more to do, so please test, raise issues &amp; prs, etc.  image-to-3dlab: pixel match bingeljell nikhil shahane 3d">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1864285290351013888/4cQu6UVk_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Nikhil Shahane</b><span>@Bingeljell · 30 Sep 2026</span></div></header>
+<div class="txt">Free image-to-3D models don&#x27;t preserve your source image - text, logos and fine detail come back garbled. 
+I got that working with my latest &#x27;Pixel Match&#x27; feature in my image-to-3dlab: it copies the actual pixels from your source onto the model, even after retopo down to ~5k faces. High quality, low poly 3D models that are riggable and can be animated. 
+One step closer to Tripo / Meshy level of output, but free and on your own machine. Mac + NVIDIA. 
+Try it out here: <a href="https://github.com/Bingeljell/image-to-3dlab" target="_blank" rel="noopener">https://github.com/Bingeljell/image-to-3dlab</a>
+
+There&#x27;s lots more to do, so please test, raise issues &amp; PRs, etc.</div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2105354132051947520_poster.jpg"><source src="media/13_2105354132051947520.mp4" type="video/mp4"><a href="https://x.com/Bingeljell/status/2105364806379151765"><img src="media/13_2105354132051947520_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/Bingeljell/status/2105364806379151765" target="_blank" rel="noopener">Open in X</a><span>3D · <span class="price">Free</span> · from Yuval</span></footer></article><article class="tile post" data-cat="Video" data-q="we&#x27;re releasing heygen video, built for businesses that need production-quality video without production-level costs.
 
 pricing starts at $0.01/s through october (50% off)
 
 built on @minimax_ai h3, post-trained by heygen.
 
-learn more: https://developers.heygen.com/heygen-video-1.0-catalog heygen video heygen heygen">
-<div class="top"><span class="cat">Video</span><span class="price paid">Paid</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2080749613934682112/RGAD73oR_normal.jpg" alt=""><div><b>HeyGen</b> <span class="h">@HeyGen · 2026-09-30</span></div></div>
+learn more: https://developers.heygen.com/heygen-video-1.0-catalog  heygen video heygen heygen video">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2080749613934682112/RGAD73oR_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>HeyGen</b><span>@HeyGen · 30 Sep 2026</span></div></header>
 <div class="txt">We&#x27;re releasing HeyGen Video, built for businesses that need production-quality video without production-level costs.
 
 Pricing starts at $0.01/s through October (50% off)
 
 Built on <a href="https://x.com/Minimax_AI" target="_blank" rel="noopener">@Minimax_AI</a> H3, post-trained by HeyGen.
 
-Learn more: <a href="https://developers.heygen.com/heygen-video-1.0-catalog" target="_blank" rel="noopener">https://developers.heygen.com/heygen-video-1.0-catalog</a></div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2105352541278195712_poster.jpg"><source src="media/13_2105352541278195712.mp4" type="video/mp4"><a href="https://x.com/HeyGen/status/2105352603542720675"><img src="media/13_2105352541278195712_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/HeyGen/status/2105352603542720675" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Ron</span></div></article><article class="card" data-cat="New Features/Models" data-q="introducing griffin, the first model to pass the video turing test.
-
-48% of people who talked to it live thought it was a real human. previous systems have had a pass rate &lt;3%. it is #1 on nvidia&#x27;s benchmark for full-duplex ai video.
-
-it’s the first human interaction model (him). tavus griffin tavus tavus">
-<div class="top"><span class="cat">New Features/Models</span><span class="price paid">Paid</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1974200616399593472/ZFG0msxY_normal.jpg" alt=""><div><b>Tavus</b> <span class="h">@tavus · 2026-10-01</span></div></div>
-<div class="txt">Introducing Griffin, the first model to pass the video Turing test.
-
-48% of people who talked to it live thought it was a real human. Previous systems have had a pass rate &lt;3%. It is <a href="https://x.com/hashtag/1" target="_blank" rel="noopener">#1</a> on NVIDIA&#x27;s benchmark for full-duplex AI video.
-
-It’s the first Human Interaction Model (HIM).</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2105703934073683968_poster.jpg"><source src="media/13_2105703934073683968.mp4" type="video/mp4"><a href="https://x.com/tavus/status/2105704169009246248"><img src="media/13_2105703934073683968_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/tavus/status/2105704169009246248" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Ron</span></div></article><article class="card" data-cat="3D" data-q="free image-to-3d models don&#x27;t preserve your source image - text, logos and fine detail come back garbled. 
-i got that working with my latest &#x27;pixel match&#x27; feature in my image-to-3dlab: it copies the actual pixels from your source onto the model, even after retopo down to ~5k faces. high quality, low poly 3d models that are riggable and can be animated. 
-one step closer to tripo / meshy level of output, but free and on your own machine. mac + nvidia. 
-try it out here: https://github.com/bingeljell/image-to-3dlab
-
-there&#x27;s lots more to do, so please test, raise issues &amp; prs, etc. image-to-3dlab: pixel match bingeljell nikhil shahane">
-<div class="top"><span class="cat">3D</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1864285290351013888/4cQu6UVk_normal.jpg" alt=""><div><b>Nikhil Shahane</b> <span class="h">@Bingeljell · 2026-09-30</span></div></div>
-<div class="txt">Free image-to-3D models don&#x27;t preserve your source image - text, logos and fine detail come back garbled. 
-I got that working with my latest &#x27;Pixel Match&#x27; feature in my image-to-3dlab: it copies the actual pixels from your source onto the model, even after retopo down to ~5k faces. High quality, low poly 3D models that are riggable and can be animated. 
-One step closer to Tripo / Meshy level of output, but free and on your own machine. Mac + NVIDIA. 
-Try it out here: <a href="https://github.com/Bingeljell/image-to-3dlab" target="_blank" rel="noopener">https://github.com/Bingeljell/image-to-3dlab</a>
-
-There&#x27;s lots more to do, so please test, raise issues &amp; PRs, etc.</div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2105354132051947520_poster.jpg"><source src="media/13_2105354132051947520.mp4" type="video/mp4"><a href="https://x.com/Bingeljell/status/2105364806379151765"><img src="media/13_2105354132051947520_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/Bingeljell/status/2105364806379151765" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Motion/Animation" data-q="for anyone making 3d games and was stuck on animations using mixamo or other resources, the solution is here! an open source text-to-animation ai animator. github link in stefan post below. https://twitter.com/stefan_3d_ai/status/2104981826888675532 open-source text-to-animation ai animator risingsunint_ rising sun interactive">
-<div class="top"><span class="cat">Motion/Animation</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2088724442893459456/scn56qTl_normal.jpg" alt=""><div><b>Rising Sun Interactive</b> <span class="h">@RisingSunInt_ · 2026-09-30</span></div></div>
-<div class="txt">For anyone making 3d games and was stuck on animations using mixamo or other resources, the solution is here! An open source text-to-animation Ai Animator. Github link in Stefan post below. <a href="https://twitter.com/Stefan_3D_AI/status/2104981826888675532" target="_blank" rel="noopener">https://twitter.com/Stefan_3D_AI/status/2104981826888675532</a></div>
-<div class="foot"><a class="btn" href="https://x.com/RisingSunInt_/status/2105096827930345556" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Yuval</span></div></article><article class="card" data-cat="Agents &amp; Apps" data-q="we are launching open dots, run the same capabilities in 1/10th of the cost
+Learn more: <a href="https://developers.heygen.com/heygen-video-1.0-catalog" target="_blank" rel="noopener">https://developers.heygen.com/heygen-video-1.0-catalog</a></div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2105352541278195712_poster.jpg"><source src="media/13_2105352541278195712.mp4" type="video/mp4"><a href="https://x.com/HeyGen/status/2105352603542720675"><img src="media/13_2105352541278195712_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/HeyGen/status/2105352603542720675" target="_blank" rel="noopener">Open in X</a><span>Video · <span class="price">Paid</span> · from Ron</span></footer></article><article class="tile post wide" data-cat="Agents &amp; Apps" data-q="we are launching open dots, run the same capabilities in 1/10th of the cost
 
 openai shipped dot yesterday for pro users.
 
@@ -562,9 +731,8 @@ here&#x27;s how it works:
 
 built with @composio @openrouter
 
-free and open source: http://github.com/composio-community/open-dot open dots karanvaidya6 karan vaidya">
-<div class="top"><span class="cat">Agents &amp; Apps</span><span class="price free">Free</span></div>
-<div class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1941636630848348160/s_EWOnUX_normal.jpg" alt=""><div><b>Karan Vaidya</b> <span class="h">@KaranVaidya6 · 2026-09-30</span></div></div>
+free and open source: http://github.com/composio-community/open-dot  open dots karanvaidya6 karan vaidya agents &amp; apps">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/1941636630848348160/s_EWOnUX_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Karan Vaidya</b><span>@KaranVaidya6 · 30 Sep 2026</span></div></header>
 <div class="txt">We are launching Open Dots, run the same capabilities in 1/10th of the cost
 
 OpenAI shipped Dot yesterday for Pro users.
@@ -579,7 +747,21 @@ Here&#x27;s how it works:
 
 built with <a href="https://x.com/composio" target="_blank" rel="noopener">@composio</a> <a href="https://x.com/OpenRouter" target="_blank" rel="noopener">@OpenRouter</a>
 
-free and open source: <a href="http://github.com/composio-community/open-dot" target="_blank" rel="noopener">http://github.com/composio-community/open-dot</a></div><div class="media n1"><video controls playsinline preload="metadata" poster="media/13_2105334362699169795_poster.jpg"><source src="media/13_2105334362699169795.mp4" type="video/mp4"><a href="https://x.com/KaranVaidya6/status/2105334408932954604"><img src="media/13_2105334362699169795_poster.jpg" alt="video"></a></video></div>
-<div class="foot"><a class="btn" href="https://x.com/KaranVaidya6/status/2105334408932954604" target="_blank" rel="noopener">Open in X</a><span class="meta">shared by Ron</span></div></article></main>
-<script>let c="all";const q=document.getElementById("q");function f(){const s=q.value.toLowerCase();document.querySelectorAll(".card").forEach(x=>x.style.display=(c=="all"||x.dataset.cat==c)&&x.dataset.q.includes(s)?"":"none")}
-document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(t=>t.classList.remove("on"));b.classList.add("on");c=b.dataset.c;f()});q.oninput=f;</script></body></html>
+free and open source: <a href="http://github.com/composio-community/open-dot" target="_blank" rel="noopener">http://github.com/composio-community/open-dot</a></div><div class="media n1"><video controls playsinline preload="none" poster="media/13_2105334362699169795_poster.jpg"><source src="media/13_2105334362699169795.mp4" type="video/mp4"><a href="https://x.com/KaranVaidya6/status/2105334408932954604"><img src="media/13_2105334362699169795_poster.jpg" alt="Video on X"></a></video></div>
+<footer class="foot"><a class="btn" href="https://x.com/KaranVaidya6/status/2105334408932954604" target="_blank" rel="noopener">Open in X</a><span>Agents &amp; Apps · <span class="price">Free</span> · from Ron</span></footer></article><article class="tile post" data-cat="Motion/Animation" data-q="for anyone making 3d games and was stuck on animations using mixamo or other resources, the solution is here! an open source text-to-animation ai animator. github link in stefan post below. https://twitter.com/stefan_3d_ai/status/2104981826888675532  open-source text-to-animation ai animator risingsunint_ rising sun interactive motion/animation">
+<header class="au"><img class="av" src="https://pbs.twimg.com/profile_images/2088724442893459456/scn56qTl_normal.jpg" alt="" width="40" height="40" loading="lazy"><div><b>Rising Sun Interactive</b><span>@RisingSunInt_ · 30 Sep 2026</span></div></header>
+<div class="txt">For anyone making 3d games and was stuck on animations using mixamo or other resources, the solution is here! An open source text-to-animation Ai Animator. Github link in Stefan post below. <a href="https://twitter.com/Stefan_3D_AI/status/2104981826888675532" target="_blank" rel="noopener">https://twitter.com/Stefan_3D_AI/status/2104981826888675532</a></div>
+<footer class="foot"><a class="btn" href="https://x.com/RisingSunInt_/status/2105096827930345556" target="_blank" rel="noopener">Open in X</a><span>Motion/Animation · <span class="price">Free</span> · from Yuval</span></footer></article></div><p class="empty" id="empty">Nothing on the shelf matches that yet.</p></div></div>
+</section>
+<footer class="close"><div class="mark rise" aria-label="AI Tools"><i style="height:100%;background:#c9a45a;color:#0c0a08">A</i><i style="height:74%;background:#2b2520;color:#ffffff">I</i><i style="height:88%;background:#e9e2d6;color:#0c0a08">T</i><i style="height:62%;background:#5a4a36;color:#ffffff">O</i><i style="height:94%;background:#c9a45a;color:#0c0a08">O</i><i style="height:70%;background:#2b2520;color:#ffffff">L</i><i style="height:84%;background:#e9e2d6;color:#0c0a08">S</i></div>
+<div class="closerow"><span>Private shelf for Yuval and Ron. Updated nightly from our chat. Every post belongs to its author on X.</span><a class="btn" href="#library">Back to the shelf</a></div></footer>
+<script>
+document.documentElement.classList.add("js");
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll(".tile").forEach((t,n)=>{t.classList.add("rise");t.style.transitionDelay=(n%3*70)+"ms"});
+document.querySelectorAll(".rise").forEach(x=>io.observe(x));
+document.querySelectorAll(".col").forEach((c,n)=>{c.classList.add("drift");const f=c.querySelector(".fr");if(f){f.classList.add("shutter");f.style.transitionDelay=(n*90)+"ms";requestAnimationFrame(()=>requestAnimationFrame(()=>f.classList.add("in")))}});
+let c="all";const q=document.getElementById("q"),em=document.getElementById("empty");
+function f(){const s=q.value.toLowerCase().trim();let k=0;document.querySelectorAll(".post").forEach(x=>{const ok=(c=="all"||x.dataset.cat==c)&&x.dataset.q.includes(s);x.style.display=ok?"":"none";if(ok){k++;x.classList.add("in")}});em.style.display=k?"none":"block"}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(t=>t.classList.remove("on"));b.classList.add("on");c=b.dataset.c;f()});q.oninput=f;
+</script></body></html>
